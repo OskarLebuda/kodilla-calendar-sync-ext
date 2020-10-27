@@ -1,6 +1,6 @@
 (function () {
   setInterval(function () {
-    const inputs = document.querySelectorAll('#mentor-students-list > div.table-responsive.bootcamp-users-table > table > tbody > tr > td.next-call-at.important-data > form > input');
+    const inputs = document.querySelectorAll('.bootcamp-users-table > table > tbody > tr > td.next-call-at input');
 
     Array.prototype.forEach.call(inputs, element => {
       if (element.parentNode.getElementsByClassName('ext-sync').length === 0) {
@@ -20,10 +20,10 @@
   function syncButtonClick(event) {
     event.preventDefault();
 
-    const userDataElement = event.target.parentNode.parentNode.parentNode.getElementsByClassName('user-data')[0];
-    const nextCall = event.target.parentNode.getElementsByTagName('input')[0].value;
-    const name = userDataElement.getElementsByTagName('a')[0].innerText;
-    const email = userDataElement.getElementsByTagName('p')[1].innerText;
+    const userDataElement = this.parentNode.parentNode.parentNode.querySelector('.user-data');
+    const nextCall = this.parentNode.parentNode.querySelector('input').value;
+    const name = userDataElement.querySelector('a').innerText;
+    const email = userDataElement.querySelector('p').innerText;
     sendData(name, email, nextCall)
 
   }

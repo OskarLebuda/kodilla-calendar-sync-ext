@@ -50,9 +50,25 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
         })
       };
 
+
       fetch('https://www.googleapis.com/calendar/v3/calendars/primary/events?sendNotifications=true&conferenceDataVersion=1', init)
-        .then(function (data) {
-          alert(`New event added to the google calendar at ${request.source.time} with ${request.source.name}`);
+        .then(function (response) {
+          
+          if (!response.ok) {
+            chrome.notifications.create('', {
+              title: 'Kodilla calendar',
+              message: `Cannot add event to calendar. Try again later.`,
+              iconUrl: '/icon.png',
+              type: 'basic'
+            });
+          }
+
+          chrome.notifications.create('', {
+            title: 'Kodilla calendar',
+            message: `New event added to the google calendar at ${request.source.time} with ${request.source.name}`,
+            iconUrl: '/icon.png',
+            type: 'basic'
+          });
         });
     });
   }

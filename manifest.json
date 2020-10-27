@@ -1,6 +1,6 @@
 {
   "name": "Kodilla Calendar sync",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "manifest_version": 2,
   "description": "Adds google sync button to students list",
   "browser_action": {
@@ -15,10 +15,11 @@
   "permissions": [
     "webNavigation",
     "identity",
+    "notifications",
     "*://*.kodilla.com/*"
   ],
   "oauth2": {
-    "client_id": "353880819990-jv4upqnv77067ip58n1i6ci2r7qpk8n4.apps.googleusercontent.com",
+    "client_id": "1038516501076-v7phhp7bq6jo1up31s22uajon0ljfcir.apps.googleusercontent.com",
     "scopes": [
       "https://www.googleapis.com/auth/calendar",
       "https://www.googleapis.com/auth/calendar.readonly"
